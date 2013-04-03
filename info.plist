@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.matthewmorey.alfred.wwdcchecker</string>
+	<key>connections</key>
+	<dict>
+		<key>E979D3FE-1429-4740-812F-184C9E6FB18D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C3828F93-950B-4DC0-A768-58CB256ED9F4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Matt(hew) Morey</string>
+	<key>description</key>
+	<string>Checks WWDC website for changes</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>WWDC Checker</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>wwdc</string>
+				<key>runningsubtext</key>
+				<string>Checking WWDC page for changes...</string>
+				<key>script</key>
+				<string>WWDCURL="https://developer.apple.com/wwdc/"
+
+curl -s -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o wwdc.html $WWDCURL
+
+DIFF=$(diff wwdc.html wwdc.html.previous)
+
+if [ "$DIFF" != "" ]
+then
+    STATUS="PAGE HAS CHANGED!"
+	ICON="icon_warning.png"
+else
+    STATUS="No change detected"
+	ICON="icon_tick.png"
+fi
+
+mv wwdc.html wwdc.html.previous
+
+cat&lt;&lt;EOB
+&lt;?xml version="1.0"?&gt;
+&lt;items&gt;
+&lt;item uid="STATUS" arg="$STATUS"&gt;
+&lt;title&gt;WWDC Status: $STATUS&lt;/title&gt;
+&lt;subtitle&gt;Press Enter to launch WWDC page&lt;/subtitle&gt;
+&lt;icon&gt;$ICON&lt;/icon&gt;
+&lt;/item&gt;
+&lt;/items&gt;
+EOB
+</string>
+				<key>subtext</key>
+				<string>Check WWDC page</string>
+				<key>title</key>
+				<string>WWDC Checker</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E979D3FE-1429-4740-812F-184C9E6FB18D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>https://developer.apple.com/wwdc/</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>C3828F93-950B-4DC0-A768-58CB256ED9F4</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>C3828F93-950B-4DC0-A768-58CB256ED9F4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>E979D3FE-1429-4740-812F-184C9E6FB18D</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://matthewmorey.com</string>
+</dict>
+</plist>
