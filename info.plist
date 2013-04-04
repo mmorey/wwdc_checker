@@ -45,8 +45,9 @@
 curl -s -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" -o wwdc.html $WWDCURL
 
 DIFF=$(diff wwdc.html wwdc.html.previous)
+GREP=$(grep "WWDC 2013" wwdc.html)
 
-if [ "$DIFF" != "" ]
+if [ "$DIFF" != "" ] || [ "$GREP" != "" ];
 then
     STATUS="PAGE HAS CHANGED!"
 	ICON="icon_warning.png"
