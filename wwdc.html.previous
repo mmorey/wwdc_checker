@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=1024" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="icon" href="/favicon.ico" />
-<link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/core/styles/base.css" type="text/css" />
+<link rel="stylesheet" href="/assets/core/styles/base.css" type="text/css" />
 <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/core/styles/adc.css" type="text/css" />
 <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/lib/prototype.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/lib/scriptaculous.js" type="text/javascript" charset="utf-8"></script>
@@ -118,7 +118,7 @@ var s_code=s.t();if(s_code)document.write(s_code)</script>
 		<p class="gf-buy">Shop the <a href="http://www.apple.com/store/">Apple Online Store</a> (1-800-MY-APPLE), visit an <a href="http://www.apple.com/retail/">Apple Retail Store</a>, or find a <a href="http://www.apple.com/buy/locator/">reseller</a>.</p>
 <ul class="gf-links piped">
 	<li><a href="/news/" class="first">News</a></li>
-	<li><a href="/programs/register/">Register</a></li>
+	<li><a href="/register/">Register</a></li>
 	<li><a href="/bugreporter/">Report Bugs</a></li>
 	<li><a href="/contact/">Contact Us</a></li>
 </ul>
